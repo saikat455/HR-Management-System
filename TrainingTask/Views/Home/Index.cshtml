@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Trainingtask.Models.Entity.Department>
+
+
+<h1>Department List</h1>
+
+<a asp-action="DepartmentSave" asp-controller="Home" class="btn btn-success">Add New Department</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Department Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>
+                    <a asp-action="DepartmentSave" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="DepartmentDelete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<!-- Department Section Here -->
+<!-- Department List (existing section) -->
+
+
+
+
+

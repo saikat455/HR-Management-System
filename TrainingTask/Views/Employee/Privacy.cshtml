@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Trainingtask.Models.DTO.EmployeeDTO>
+
+
+
+<h1>Employee List</h1>
+
+<a asp-action="EmployeeSave" asp-controller="Employee" class="btn btn-success">Add New Employee</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee Name</th>
+            <th>Actions</th>
+            <th>address</th>
+            <th>City</th>
+            <th>Phone</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+
+                <td>@item.Address</td>
+                <td>@item.City</td>
+                 <td>@item.Phone</td>
+                <td>
+                    <a asp-action="EmployeeSave" asp-controller="Employee" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="EmployeeDelete" asp-controller="Employee" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
