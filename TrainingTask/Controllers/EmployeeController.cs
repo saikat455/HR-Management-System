@@ -10,7 +10,7 @@ namespace TrainingTask.Controllers
         private readonly IUnitOfWork unitOfWork;
         public EmployeeController(IUnitOfWork unitofWork)
         {
-            unitOfWork = unitofWork;
+           this.unitOfWork = unitofWork;
         }
 
         public async Task<IActionResult> Privacy()
@@ -99,7 +99,7 @@ namespace TrainingTask.Controllers
                 emp.DesigId = model.DesigId;
 
                 unitOfWork.EmployeeRepo.Edit(emp);
-                return RedirectToAction(nameof(Privacy));
+               
 
             }
             else

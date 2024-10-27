@@ -29,6 +29,7 @@ namespace Training.DataAccess.Repositories.implement
             return await db.Employees.Include(d => d.Dept)
                 .Select(x=>new EmployeeDTO
                 {
+                    Id=x.Id,
                     Address = x.Address,
                     DeptId = x.DeptId,
                     Name= x.Name,
