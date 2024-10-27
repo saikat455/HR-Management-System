@@ -19,6 +19,10 @@ namespace Training.DataAccess.Repositories.implement
         public EmployeeRepo(TrainingDbContext db) : base(db)
         {
         }
+        public async Task<Employee?> GetById(string id)
+        {
+            return await db.Employees.FindAsync(id);
+        }
 
         public async Task<List<EmployeeDTO>> GetIncludedept()
         {
