@@ -3,49 +3,73 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TrainingTask</title>
+    <title>@ViewData["Title"] - TrainingTask HR Management System</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TrainingTask.styles.css" asp-append-version="true" />
+    <style>
+       
+        .navbar {
+            background: linear-gradient(90deg, #28a745, #ff7f50); 
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TrainingTask</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-briefcase me-2"></i> HRM
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Department</a>
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Home" ? "active" : "")"
+                               asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="bi bi-building"></i> Department
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Privacy">Employee</a>
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Employee" ? "active" : "")"
+                               asp-area="" asp-controller="Employee" asp-action="Privacy">
+                                <i class="bi bi-people"></i> Employee
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Designation" asp-action="DesigData">Designation</a>
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Designation" ? "active" : "")"
+                               asp-area="" asp-controller="Designation" asp-action="DesigData">
+                                <i class="bi bi-tags"></i> Designation
+                            </a>
                         </li>
-                        
                     </ul>
+                   
+                    <a class="btn btn-outline-light" asp-area="" asp-controller="" asp-action="Logout">Logout</a>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+
+    <!-- Welcome Section -->
+    <section class="bg-light py-4">
+        <div class="container text-center">
+            <h1 class="display-5 text-success">Welcome to HR Management System</h1>
+            <p class="lead text-muted">Manage Departments, Employees, and Designations seamlessly with our powerful tools.</p>
+            
+        </div>
+    </section>
+
+    <div class="container mt-4">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
         @await RenderSectionAsync("tryingloop", required: false)
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - TrainingTask - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+  
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

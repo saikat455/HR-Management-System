@@ -117,7 +117,7 @@ namespace TrainingTask.Controllers
                 return NotFound();
             }
             unitOfWork.DesignationRepo.Delete(des);
-            await unitOfWork.EmployeeRepo.Save();
+            await unitOfWork.DesignationRepo.Save();
             return RedirectToAction(nameof(DesigData));
 
         }
